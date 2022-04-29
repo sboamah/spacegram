@@ -5,22 +5,18 @@ import Stories from './Stories';
 import Like from './Like';
 
 function App() {
-  
-  const [photos, setPhotos]= useState([]);
 
+  const [photos, setPhotos]= useState([]);
+ 
   useEffect(()=>{
     async function getData() {
-      const apiKey =  process.env.REACT_APP_SPACE_API_KEY;
-      const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`;
+      const url = process.env.REACT_APP_SPACE_API_KEY;
       const response = await axios(url);
       setPhotos(response.data.photos)
     }
     getData();
   }, []);
 
-  if(!photos.length){
-    <img alt="Loading" src="https://i.gifer.com/ZZ5H.gif" ></img>
-  } else{
         return (
           // <h1>hi</h1>
           <div className="App">
@@ -43,6 +39,6 @@ function App() {
             </header>
           </div>
   );
-}}
+}
 
 export default App;

@@ -13,13 +13,9 @@ useEffect(() => {
     localStorage.setItem('isLiked', isLiked);
   }, [isLiked]);
 
-// let state = { liked: false };
-const toggle = () => {
-	// let localLiked = this.state.liked;
 
-	// // Toggle the state variable liked
-	// localLiked = !localLiked;
-	// this.setState({ liked: localLiked});
+const toggle = () => {
+
     setLiked(!isLiked);
     console.log(isLiked);
 
