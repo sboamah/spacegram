@@ -7,10 +7,11 @@ import Like from './Like';
 function App() {
   
   const [photos, setPhotos]= useState([]);
-  
+
   useEffect(()=>{
     async function getData() {
-      const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key='+ process.env.REACT_APP_API_KEY;
+      const apiKey =  process.env.REACT_APP_SPACE_API_KEY;
+      const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`;
       const response = await axios(url);
       setPhotos(response.data.photos)
     }
